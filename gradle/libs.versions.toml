@@ -1,0 +1,18 @@
+[versions]
+quarkus = "3.35.3"
+datadogRegistry = "3.5.0"
+testContainers = "2.0.4"
+
+[plugins]
+quarkus = { id = "io.quarkus", version.ref = "quarkus" }
+versions = { id = "com.github.ben-manes.versions", version = "0.51.0" }
+versionsFilter = { id = "se.ascp.gradle.gradle-versions-filter", version = "0.1.16" }
+jandex = { id = "org.kordamp.gradle.jandex", version = "2.0.0" }
+
+[libraries]
+testContainersBom                 = { module = "org.testcontainers:testcontainers-bom", version.ref = "testContainers"}
+quarkusBom                        = { module = "io.quarkus.platform:quarkus-bom", version.ref = "quarkus"}
+langchain4jBom                    = { module = "io.quarkus.platform:quarkus-langchain4j-bom", version.ref = "quarkus" }
+amazonBom                         = { module = "io.quarkus.platform:quarkus-amazon-services-bom", version.ref = "quarkus" }
+datadogRegistry                   = { module = "io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-datadog", version.ref = "datadogRegistry" }
+

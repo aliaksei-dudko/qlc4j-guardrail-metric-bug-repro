@@ -1,0 +1,22 @@
+### Fire one AI-service invocation. The first call triggers the bug:
+### a WARN from DefaultAiServiceListenerRegistrar appears in the Quarkus log
+### complaining about Prometheus tag-key mismatch on guardrail_invoked_total.
+GET http://localhost:8080/chat?q=hi
+
+### Second call — the legacy meter is already registered, so the WARN
+### still appears (every event-based registration attempt still collides).
+GET http://localhost:8080/chat?q=again
+
+### Inspect the registered meters. Note that only the legacy schema
+### ([class, method, result, exception]) survives — the richer
+### event-based schema is silently dropped.
+GET http://localhost:8080/q/metrics
+Accept: text/plain
+
+### Filter to just the guardrail meters.
+GET http://localhost:8080/q/metrics
+Accept: text/plain
+
+> {%
+client.log(response.body.split('\n').filter(l => l.includes('guardrail')).join('\n'));
+%}
