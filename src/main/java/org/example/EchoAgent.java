@@ -9,6 +9,5 @@ import jakarta.enterprise.context.ApplicationScoped;
 @ApplicationScoped
 public interface EchoAgent {
 
-    @OutputGuardrails(PassThroughGuardrail.class)
     ChatResponse chat(@UserMessage String message);
 }

@@ -13,8 +13,9 @@ dependencies {
     implementation(enforcedPlatform(libs.quarkusBom))
     implementation(enforcedPlatform(libs.langchain4jBom))
 
+    implementation("io.quarkus:quarkus-rest")
+    implementation("io.quarkus:quarkus-arc")
     implementation("io.quarkiverse.langchain4j", "quarkus-langchain4j-core")
-    implementation("io.quarkiverse.langchain4j", "quarkus-langchain4j-bedrock")
 }
 
 java {
