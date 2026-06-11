@@ -1,5 +1,5 @@
 [versions]
-quarkus = "3.35.3"
+quarkus = "3.36.1"
 datadogRegistry = "3.5.0"
 testContainers = "2.0.4"
 

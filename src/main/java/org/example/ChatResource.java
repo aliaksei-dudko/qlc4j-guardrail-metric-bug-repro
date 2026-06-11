@@ -12,7 +12,7 @@ public class ChatResource {
     EchoAgent agent;
 
     @GET
-    public String chat(@QueryParam("q") String q) {
+    public ChatResponse chat(@QueryParam("q") String q) {
         return agent.chat(q == null ? "hello" : q);
     }
 }
